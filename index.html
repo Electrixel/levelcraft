@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Level Craft Business Consulting</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Aktiv Grotesk Extended Font -->
+    <link href="https://fonts.cdnfonts.com/css/aktiv-grotesk-extended" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <img src="images/level_craft.png" alt="Level Craft" class="h-12 w-auto">
+                </div>
+                
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="nav-link font-medium">Home</a>
+                    <a href="services.html" class="nav-link font-medium">Services</a>
+                    <a href="packages.html" class="nav-link font-medium">Packages</a>
+                    <a href="instagram.html" class="nav-link font-medium">Gallery</a>
+                    <a href="#contact" class="nav-link font-medium">Contact</a>
+                </div>
+                
+                <!-- Mobile Menu Button -->
+                <a href="#nav" class="nav__toggle md:hidden" role="button" aria-expanded="false" aria-controls="menu">
+                    <svg class="menuicon" xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 50 50">
+                        <title>Toggle Menu</title>
+                        <g>
+                            <line class="menuicon__bar" x1="13" y1="16.5" x2="37" y2="16.5"/>
+                            <line class="menuicon__bar" x1="13" y1="24.5" x2="37" y2="24.5"/>
+                            <line class="menuicon__bar" x1="13" y1="24.5" x2="37" y2="24.5"/>
+                            <line class="menuicon__bar" x1="13" y1="32.5" x2="37" y2="32.5"/>
+                            <circle class="menuicon__circle" r="23" cx="25" cy="25" />
+                        </g>
+                    </svg>
+                </a>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <ul class="nav__menu md:hidden" id="menu" tabindex="-1" aria-label="main navigation" hidden>
+            <li class="nav__item"><a href="index.html" class="nav__link">Home</a></li>
+            <li class="nav__item"><a href="services.html" class="nav__link">Services</a></li>
+            <li class="nav__item"><a href="packages.html" class="nav__link">Packages</a></li>
+            <li class="nav__item"><a href="instagram.html" class="nav__link">Gallery</a></li>
+            <li class="nav__item"><a href="#contact" class="nav__link">Contact</a></li>
+        </ul>
+        
+        <!-- Animated Background Element -->
+        <div class="splash"></div>
+    </nav>
+
+    <!-- Theme Toggle Button -->
+    <button class="theme-toggle" onclick="toggleTheme()" title="Toggle light/dark mode">
+        <svg class="sun-icon" width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
+        </svg>
+        <svg class="moon-icon" width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="display: none;">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+        </svg>
+    </button>
+
+    <!-- Hero Section (Intro) -->
+    <section id="home" class="relative min-h-screen flex items-center justify-center overflow-hidden">
+        <!-- Background Grid Pattern -->
+        <div class="absolute inset-0 bg-grid-pattern opacity-20"></div>
+        
+        <!-- Hero Content -->
+        <div class="relative z-10 max-w-6xl mx-auto px-6 text-center">
+            <div class="hero-content">
+                <h1 class="text-6xl md:text-8xl font-bold mb-8 leading-tight flex flex-col items-center justify-center" style="font-family: 'Aktiv Grotesk Extended', sans-serif;">
+                    <span class="block">INSPIRING</span>
+                    <span class="block">BUSINESS</span>
+                    <span class="block text-yellow-400">CHANGE.</span>
+                </h1>
+                <div class="flex items-center justify-center gap-4 mb-12">
+                    <svg class="w-6 h-6 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                    </svg>
+                    <p class="text-xl md:text-2xl font-medium">
+                        IDEAS, INNOVATION, IMPACT
+                    </p>
+                </div>
+                <a href="#contact" class="cta-button-primary inline-block px-8 py-4 rounded-lg font-semibold text-lg">
+                    Book Free Consultation Call
+                </a>
+            </div>
+        </div>
+        
+        <!-- Guy Image on Right Edge -->
+        <div class="absolute right-0 bottom-0 z-20">
+            <img src="images/guy.png" alt="Business Professional" class="hidden md:block h-auto max-h-screen object-contain">
+            <img src="images/guy_mobile.png" alt="Business Professional" class="block md:hidden h-auto max-h-screen object-contain">
+        </div>
+        
+        <!-- Scrolling Text at Bottom of Hero -->
+        <div class="absolute bottom-[-50px] left-0 w-full overflow-hidden z-30">
+            <marquee behavior="scroll" direction="left" scrollamount="15" class="font-bold py-8 opacity-30 w-full" style="color: transparent; -webkit-text-stroke: 2px #50586c; text-stroke: 2px #50586c; font-family: 'Aktiv Grotesk Extended', sans-serif; font-size: 216px;">
+                LEVEL CRAFT CONSULTING 
+            </marquee>
+        </div>
+    </section>
+
+    <!-- Why You Need Consulting Section -->
+    <section id="why" class="py-24">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">
+                    Why You Need Consulting
+                </h2>
+                <p class="text-xl max-w-3xl mx-auto">
+                    Starting and growing a business is challenging. Professional guidance can make the difference between success and failure.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-yellow-400 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <svg class="w-8 h-8 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Formal Registration</h3>
+                    <p>Proper business registration and compliance to avoid legal issues.</p>
+                </div>
+                
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-yellow-400 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <svg class="w-8 h-8 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Strong Branding</h3>
+                    <p>Build trust and recognition with professional brand development.</p>
+                </div>
+                
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-yellow-400 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <svg class="w-8 h-8 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Clear Strategy</h3>
+                    <p>Strategic business and marketing plans to accelerate growth.</p>
+                </div>
+                
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-yellow-400 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <svg class="w-8 h-8 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Financial Control</h3>
+                    <p>Professional bookkeeping and forecasting systems.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section id="benefits" class="py-24">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">
+                    Strategic Solutions for Business Growth
+                </h2>
+                <p class="text-xl max-w-3xl mx-auto">
+                    Level Craft is a business consultancy that designs and implements strategic solutions to optimize processes, enhance branding, and drive sustainable growth.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="solution-card">
+                    <div class="solution-icon mb-6">
+                        <div class="w-16 h-16 bg-yellow-100 rounded-xl flex items-center justify-center">
+                            <svg class="w-8 h-8 text-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold text-yellow-600 mb-4">Business Registration</h3>
+                    <p>Complete business registration and compliance services to establish your company foundation.</p>
+                </div>
+                
+                <div class="solution-card">
+                    <div class="solution-icon mb-6">
+                        <div class="w-16 h-16 bg-yellow-100 rounded-xl flex items-center justify-center">
+                            <svg class="w-8 h-8 text-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"></path>
+                            </svg>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold text-yellow-600 mb-4">Brand Development</h3>
+                    <p>Build trust with professional brand development and strategic positioning.</p>
+                </div>
+                
+                <div class="solution-card">
+                    <div class="solution-icon mb-6">
+                        <div class="w-16 h-16 bg-yellow-100 rounded-xl flex items-center justify-center">
+                            <svg class="w-8 h-8 text-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
+                            </svg>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold text-yellow-600 mb-4">Growth Strategy</h3>
+                    <p>Comprehensive business and marketing strategies to accelerate your growth.</p>
+                </div>
+                
+                <div class="solution-card">
+                    <div class="solution-icon mb-6">
+                        <div class="w-16 h-16 bg-yellow-100 rounded-xl flex items-center justify-center">
+                            <svg class="w-8 h-8 text-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
+                            </svg>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold text-yellow-600 mb-4">Financial Systems</h3>
+                    <p>Professional bookkeeping and forecasting systems for better financial control.</p>
+                </div>
+                
+                <div class="solution-card">
+                    <div class="solution-icon mb-6">
+                        <div class="w-16 h-16 bg-yellow-100 rounded-xl flex items-center justify-center">
+                            <svg class="w-8 h-8 text-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                            </svg>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold text-yellow-600 mb-4">Digital Presence</h3>
+                    <p>Professional websites and digital marketing strategies to establish your online presence.</p>
+                </div>
+                
+                <div class="solution-card">
+                    <div class="solution-icon mb-6">
+                        <div class="w-16 h-16 bg-yellow-100 rounded-xl flex items-center justify-center">
+                            <svg class="w-8 h-8 text-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                            </svg>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold text-yellow-600 mb-4">Professional Photography</h3>
+                    <p>High-quality photography services to enhance your brand and marketing materials.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section id="about" class="py-24">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h2 class="text-4xl md:text-5xl font-bold mb-6">
+                        About Level Craft
+                    </h2>
+                    <p class="text-xl mb-6">
+                        We are a dynamic business consultancy that specializes in helping entrepreneurs and businesses navigate the complexities of starting, growing, and scaling their operations.
+                    </p>
+                    <p class="text-lg mb-8">
+                        Our comprehensive approach combines strategic business planning, professional branding, digital presence development, and financial management to create sustainable growth for our clients.
+                    </p>
+                    <div class="flex flex-wrap gap-4">
+                        <div class="flex items-center">
+                            <svg class="w-6 h-6 text-yellow-400 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span>Strategic Planning</span>
+                        </div>
+                        <div class="flex items-center">
+                            <svg class="w-6 h-6 text-yellow-400 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span>Brand Development</span>
+                        </div>
+                        <div class="flex items-center">
+                            <svg class="w-6 h-6 text-yellow-400 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span>Digital Solutions</span>
+                        </div>
+                        <div class="flex items-center">
+                            <svg class="w-6 h-6 text-yellow-400 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span>Financial Management</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="about-visual">
+                    <img src="images/about_us.png" alt="About Level Craft" class="w-full h-64 object-contain rounded-lg">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Packages Section -->
+    <section id="packages" class="py-24">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">
+                    Our Packages
+                </h2>
+                <p class="text-xl max-w-3xl mx-auto">
+                    Choose the perfect package for your business needs. All packages include comprehensive support and are designed for maximum value.
+                </p>
+            </div>
+            
+            <div class="grid lg:grid-cols-2 gap-8">
+                <!-- Kickstart Package -->
+                <div class="bg-[#f2eeed] border-2 border-yellow-400 rounded-lg p-8 shadow-lg hover:shadow-xl transition-all duration-300">
+                    <h3 class="text-2xl font-bold text-black mb-4">Kickstart Package</h3>
+                    <p class="text-black mb-6">For new entrepreneurs and side-hustlers getting started.</p>
+                    <ul class="space-y-3 text-black mb-6">
+                        <li class="flex items-start">
+                            <span class="text-yellow-600 mr-3">✓</span>
+                            CIPC + SARS registration
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-yellow-600 mr-3">✓</span>
+                            Logo design + mini brand kit
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-yellow-600 mr-3">✓</span>
+                            One-page website
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-yellow-600 mr-3">✓</span>
+                            Business Model Canvas
+                        </li>
+                    </ul>
+                    <a href="packages.html" class="cta-button-primary inline-block w-full text-center py-3 rounded-lg font-semibold">
+                        Learn More
+                    </a>
+                </div>
+                
+                <!-- Accelerate Package -->
+                <div class="bg-[#f2eeed] border-2 border-yellow-400 rounded-lg p-8 shadow-lg hover:shadow-xl transition-all duration-300">
+                    <h3 class="text-2xl font-bold text-black mb-4">Accelerate Package</h3>
+                    <p class="text-black mb-6">For growing businesses looking to formalize and market.</p>
+                    <ul class="space-y-3 text-black mb-6">
+                        <li class="flex items-start">
+                            <span class="text-yellow-600 mr-3">✓</span>
+                            Everything in Kickstart
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-yellow-600 mr-3">✓</span>
+                            5-page website upgrade
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-yellow-600 mr-3">✓</span>
+                            Full branding kit
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-yellow-600 mr-3">✓</span>
+                            Business plan & financial forecast
+                        </li>
+                    </ul>
+                    <a href="packages.html" class="cta-button-primary inline-block w-full text-center py-3 rounded-lg font-semibold">
+                        Learn More
+                    </a>
+                </div>
+                
+                <!-- Pro Launch Package -->
+                <div class="bg-[#f2eeed] border-2 border-yellow-400 rounded-lg p-8 shadow-lg hover:shadow-xl transition-all duration-300">
+                    <h3 class="text-2xl font-bold text-black mb-4">Pro Launch Package</h3>
+                    <p class="text-black mb-6">For clients ready to scale or get investment.</p>
+                    <ul class="space-y-3 text-black mb-6">
+                        <li class="flex items-start">
+                            <span class="text-yellow-600 mr-3">✓</span>
+                            Everything in Accelerate
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-yellow-600 mr-3">✓</span>
+                            Custom website (eCommerce/booking)
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-yellow-600 mr-3">✓</span>
+                            Ads setup (Facebook + Google)
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-yellow-600 mr-3">✓</span>
+                            3-month management support
+                        </li>
+                    </ul>
+                    <a href="packages.html" class="cta-button-primary inline-block w-full text-center py-3 rounded-lg font-semibold">
+                        Learn More
+                    </a>
+                </div>
+                
+                <!-- Bookkeeping Package -->
+                <div class="bg-[#f2eeed] border-2 border-yellow-400 rounded-lg p-8 shadow-lg hover:shadow-xl transition-all duration-300">
+                    <h3 class="text-2xl font-bold text-black mb-4">Bookkeeping Package</h3>
+                    <p class="text-black mb-6">Comprehensive financial services for business compliance.</p>
+                    <ul class="space-y-3 text-black mb-6">
+                        <li class="flex items-start">
+                            <span class="text-yellow-600 mr-3">✓</span>
+                            Monthly VAT submissions
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-yellow-600 mr-3">✓</span>
+                            Annual financial statements
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-yellow-600 mr-3">✓</span>
+                            Income tax returns
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-yellow-600 mr-3">✓</span>
+                            Payroll compliance
+                        </li>
+                    </ul>
+                    <a href="packages.html" class="cta-button-primary inline-block w-full text-center py-3 rounded-lg font-semibold">
+                        Learn More
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-24">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">
+                    Get Started Today
+                </h2>
+                <p class="text-xl max-w-3xl mx-auto">
+                    Ready to transform your business? Schedule a free consultation call to discuss your needs and find the perfect solution.
+                </p>
+            </div>
+            
+            <div class="max-w-2xl mx-auto">
+                <form class="space-y-6" action="https://formspree.io/f/xandaqak" method="POST" id="contact-form">
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <label for="name" class="block text-sm font-medium mb-2">Full Name</label>
+                            <input type="text" id="name" name="name" class="form-input w-full" required>
+                        </div>
+                        <div>
+                            <label for="email" class="block text-sm font-medium mb-2">Email Address</label>
+                            <input type="email" id="email" name="email" class="form-input w-full" required>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <label for="phone" class="block text-sm font-medium mb-2">Phone Number</label>
+                        <input type="tel" id="phone" name="phone" class="form-input w-full">
+                    </div>
+                    
+                    <div>
+                        <label for="business" class="block text-sm font-medium mb-2">Business Name</label>
+                        <input type="text" id="business" name="business" class="form-input w-full">
+                    </div>
+                    
+                    <div>
+                        <label for="service" class="block text-sm font-medium mb-2">Service Interest</label>
+                        <select id="service" name="service" class="form-input w-full">
+                            <option value="">Select a service</option>
+                            <option value="kickstart">Kickstart Package</option>
+                            <option value="accelerate">Accelerate Package</option>
+                            <option value="pro-launch">Pro Launch Package</option>
+                            <option value="bookkeeping">Bookkeeping Package</option>
+                            <option value="photography">Photography Services</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    
+                    <div>
+                        <label for="message" class="block text-sm font-medium mb-2">Tell us about your business</label>
+                        <textarea id="message" name="message" rows="4" class="form-input w-full" placeholder="Describe your business, goals, and what you're looking to achieve..."></textarea>
+                    </div>
+                    
+                    <!-- Success/Error Messages -->
+                    <div id="form-messages" class="hidden">
+                        <div id="success-message" class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded mb-4">
+                            <strong>Success!</strong> Your message has been sent. We'll get back to you soon!
+                        </div>
+                        <div id="error-message" class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-4">
+                            <strong>Error!</strong> There was a problem sending your message. Please try again.
+                        </div>
+                    </div>
+                    
+                    <div class="text-center">
+                        <button type="submit" class="cta-button-primary px-8 py-4 rounded-lg font-semibold text-lg" id="submit-btn">
+                            Schedule Free Consultation
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-16">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div class="col-span-2">
+                    <div class="text-2xl font-bold mb-4">Level Craft</div>
+                    <p class="mb-4 max-w-md">
+                        Empowering businesses to achieve their full potential through strategic consulting and innovative solutions.
+                    </p>
+                    <div class="mb-6">
+                        <p class="text-sm">
+                            <strong>Email:</strong> <a href="mailto:info@levelcraft.co.za" class="hover:text-yellow-400 transition-colors">info@levelcraft.co.za</a>
+                        </p>
+                    </div>
+                    <div class="flex space-x-4">
+                        <a href="https://www.linkedin.com/company/level-craft/" class="social-link" target="_blank" rel="noopener noreferrer">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4">Solutions</h4>
+                    <ul class="space-y-2">
+                        <li><a href="services.html" class="hover:text-yellow-400 transition-colors">Business Services</a></li>
+                        <li><a href="packages.html" class="hover:text-yellow-400 transition-colors">Packages</a></li>
+                        <li><a href="#" class="hover:text-yellow-400 transition-colors">Photography</a></li>
+                        <li><a href="#" class="hover:text-yellow-400 transition-colors">Bookkeeping</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4">Company</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#about" class="hover:text-yellow-400 transition-colors">About Us</a></li>
+                        <li><a href="#contact" class="hover:text-yellow-400 transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t mt-12 pt-8 text-center">
+                <p>&copy; 2025 Level Craft. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Custom JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>

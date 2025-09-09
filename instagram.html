@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photography Gallery - Level Craft</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Aktiv+Grotesk+Extended:wght@400;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Theme Toggle Button -->
+    <button class="theme-toggle" onclick="toggleTheme()" title="Toggle light/dark mode">
+        <svg class="sun-icon" width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
+        </svg>
+        <svg class="moon-icon" width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="display: none;">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+        </svg>
+    </button>
+
+    <!-- Photography Gallery -->
+    <section class="min-h-screen pt-20 pb-20 relative overflow-hidden">
+        <!-- Simple Background -->
+        <div class="absolute inset-0 bg-gradient-to-br from-yellow-50/10 via-transparent to-yellow-100/5 dark:from-yellow-900/5 dark:via-transparent dark:to-yellow-800/5"></div>
+        
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
+            <!-- Simple Header -->
+            <div class="text-center mb-12">
+                <h1 class="text-3xl md:text-4xl font-bold mb-4" style="color: var(--text-primary); font-family: 'Aktiv Grotesk Extended', sans-serif;">
+                    Photography Gallery
+                </h1>
+                <p class="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+                    Professional photography work
+                </p>
+            </div>
+            
+            <!-- Clean Gallery Grid -->
+            <div class="instagram-embed-grid">
+                <div id="instagram-embeds" class="loading">
+                    <div class="loading-container">
+                        <div class="loading-spinner"></div>
+                        <p class="text-center text-lg font-medium" style="color: var(--text-primary);">Loading Photography Gallery...</p>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </section>
+
+    <!-- Custom JavaScript -->
+    <script src="script.js"></script>
+    <script>
+        // Clean Local Image Gallery - Focus on Images Only
+        function loadLocalImages() {
+            const container = document.getElementById('instagram-embeds');
+            
+            if (!container) {
+                console.error('Container not found');
+                return;
+            }
+            
+            // Local image files from images folder
+            const localImages = [
+                'images/1.jpg',
+                'images/2.jpg',
+                'images/3.jpg',
+                'images/4.jpg',
+                'images/5.jpg',
+                'images/6.jpg',
+                'images/7.jpg',
+                'images/8.jpg',
+                'images/9.jpg',
+                'images/10.jpg'
+            ];
+            
+            container.classList.remove('loading');
+            container.innerHTML = '';
+            
+            // Simple image loading
+            localImages.forEach((imagePath, index) => {
+                const imageDiv = document.createElement('div');
+                imageDiv.className = 'pure-image-item';
+                imageDiv.style.animationDelay = `${index * 0.1}s`;
+                
+                // Simple loading placeholder
+                const placeholder = document.createElement('div');
+                placeholder.className = 'image-placeholder';
+                placeholder.style.cssText = `
+                    width: 100%; 
+                    height: 100%; 
+                    background: #f0f0f0;
+                    border-radius: 12px; 
+                    display: flex; 
+                    align-items: center; 
+                    justify-content: center; 
+                    color: #999; 
+                    font-size: 12px; 
+                    position: absolute; 
+                    top: 0; 
+                    left: 0;
+                `;
+                placeholder.innerHTML = `
+                    <div style="text-align: center;">
+                        <div style="width: 30px; height: 30px; border: 2px solid #ddd; border-top: 2px solid #FFD700; border-radius: 50%; animation: spin 1s linear infinite; margin: 0 auto 8px;"></div>
+                        <div>Loading...</div>
+                    </div>
+                `;
+                
+                const img = document.createElement('img');
+                img.src = imagePath;
+                img.alt = `Photography ${index + 1}`;
+                img.className = 'pure-image';
+                img.loading = 'lazy';
+                img.style.cssText = `
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    border-radius: 12px;
+                    transition: all 0.3s ease;
+                `;
+                
+                // Simple hover effect
+                imageDiv.addEventListener('mouseenter', () => {
+                    img.style.transform = 'scale(1.02)';
+                });
+                
+                imageDiv.addEventListener('mouseleave', () => {
+                    img.style.transform = 'scale(1)';
+                });
+                
+                img.onload = () => {
+                    imageDiv.classList.add('loaded');
+                    placeholder.style.opacity = '0';
+                    setTimeout(() => placeholder.remove(), 300);
+                };
+                
+                img.onerror = () => {
+                    console.warn(`Failed to load image: ${imagePath}`);
+                    imageDiv.style.display = 'none';
+                };
+                
+                imageDiv.appendChild(placeholder);
+                imageDiv.appendChild(img);
+                container.appendChild(imageDiv);
+            });
+            
+            // Simple click handler for modal
+            container.addEventListener('click', (e) => {
+                if (e.target.classList.contains('pure-image')) {
+                    showImageModal(e.target.src);
+                }
+            });
+            
+            console.log('Loaded clean image gallery');
+        }
+        
+        // Simple image modal function
+        function showImageModal(imageSrc) {
+            // Remove existing modal if any
+            const existingModal = document.getElementById('image-modal');
+            if (existingModal) {
+                existingModal.remove();
+            }
+            
+            const modal = document.createElement('div');
+            modal.id = 'image-modal';
+            modal.style.cssText = `
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0, 0, 0, 0.9);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                z-index: 9999;
+            `;
+            
+            const img = document.createElement('img');
+            img.src = imageSrc;
+            img.style.cssText = `
+                max-width: 90%;
+                max-height: 90%;
+                object-fit: contain;
+                border-radius: 8px;
+            `;
+            
+            const closeBtn = document.createElement('button');
+            closeBtn.innerHTML = '✕';
+            closeBtn.style.cssText = `
+                position: absolute;
+                top: 20px;
+                right: 30px;
+                background: rgba(255, 255, 255, 0.2);
+                border: none;
+                color: white;
+                font-size: 24px;
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            `;
+            
+            closeBtn.addEventListener('click', () => {
+                modal.remove();
+            });
+            
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    modal.remove();
+                }
+            });
+            
+            modal.appendChild(img);
+            modal.appendChild(closeBtn);
+            document.body.appendChild(modal);
+        }
+        
+        // Initialize when DOM is ready
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Initializing local image gallery...');
+            loadLocalImages();
+        });
+    </script>
+</body>
+</html>
