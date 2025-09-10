@@ -1,7 +1,7 @@
 // Level Craft Business Consulting - Adaptive Theme JavaScript
 
 // Theme management
-let currentTheme = 'auto'; // 'auto', 'light', 'dark'
+let currentTheme = 'dark'; // 'light', 'dark' (dark is default)
 
 // Initialize theme on page load
 document.addEventListener('DOMContentLoaded', function() {
@@ -18,10 +18,9 @@ function initializeTheme() {
         currentTheme = savedTheme;
         applyTheme(savedTheme);
     } else {
-        // Check system preference
-        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-        currentTheme = 'auto';
-        applyTheme(prefersDark ? 'dark' : 'light');
+        // Default to dark mode
+        currentTheme = 'dark';
+        applyTheme('dark');
     }
     
     updateThemeToggleButton();
@@ -39,27 +38,18 @@ function applyTheme(theme) {
     } else if (theme === 'dark') {
         body.classList.add('dark-mode');
     }
-    // 'auto' means no class, uses system preference
+    // Dark mode is default (no class needed)
 }
 
 // Toggle theme function
 function toggleTheme() {
-    const themes = ['auto', 'light', 'dark'];
+    const themes = ['dark', 'light'];
     const currentIndex = themes.indexOf(currentTheme);
     const nextIndex = (currentIndex + 1) % themes.length;
     currentTheme = themes[nextIndex];
     
-    // Save preference
+    applyTheme(currentTheme);
     localStorage.setItem('levelCraftTheme', currentTheme);
-    
-    // Apply theme
-    if (currentTheme === 'auto') {
-        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-        applyTheme(prefersDark ? 'dark' : 'light');
-    } else {
-        applyTheme(currentTheme);
-    }
-    
     updateThemeToggleButton();
 }
 
@@ -70,14 +60,9 @@ function updateThemeToggleButton() {
     
     if (!sunIcon || !moonIcon) return;
     
-    let isDark = false;
-    if (currentTheme === 'auto') {
-        isDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    } else {
-        isDark = currentTheme === 'dark';
-    }
-    
-    if (isDark) {
+    // Show sun icon when in dark mode (to switch to light)
+    // Show moon icon when in light mode (to switch to dark)
+    if (currentTheme === 'dark') {
         sunIcon.style.display = 'block';
         moonIcon.style.display = 'none';
     } else {
@@ -88,14 +73,9 @@ function updateThemeToggleButton() {
 
 // Listen for system theme changes
 function setupEventListeners() {
-    // Listen for system theme changes
-    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function(e) {
-        if (currentTheme === 'auto') {
-            applyTheme(e.matches ? 'dark' : 'light');
-            updateThemeToggleButton();
-        }
-    });
-    
+    // No system theme listening needed since we use manual toggle only
+}
+
 // Mobile menu functionality for animated menu
 function setupAnimatedMobileMenu() {
     const nav = document.querySelector('nav');

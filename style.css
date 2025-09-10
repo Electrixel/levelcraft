@@ -1,48 +1,8 @@
-/* Level Craft Business Consulting - Adaptive Light/Dark Theme */
+/* Level Craft Business Consulting - Dark Mode Default Theme */
 
-/* Base Styles */
+/* Base Styles - Dark Mode Default */
 :root {
-    /* Light mode variables */
-    --bg-primary: #f6f6f6;
-    --bg-secondary: #ffffff;
-    --bg-dark: #1a1a1a;
-    --text-primary: #1a1a1a;
-    --text-secondary: #4a5568;
-    --text-light: #ffffff;
-    --accent: #FFD700;
-    --accent-hover: #E5C100;
-    --border: #e2e8f0;
-    --card-bg: rgba(255, 255, 255, 0.1);
-    --card-border: rgba(255, 215, 0, 0.3);
-    --nav-bg: rgba(255, 255, 255, 0.95);
-    --nav-text: #1a1a1a;
-    --mobile-menu-bg: #ffffff;
-    --footer-bg: #f6f6f6;
-}
-
-/* Dark mode variables */
-@media (prefers-color-scheme: dark) {
-    :root {
-        --bg-primary: #1a1a1a;
-        --bg-secondary: #2d2d2d;
-        --bg-dark: #000000;
-        --text-primary: #ffffff;
-        --text-secondary: #a0aec0;
-        --text-light: #ffffff;
-        --accent: #FFD700;
-        --accent-hover: #E5C100;
-        --border: #4a5568;
-        --card-bg: rgba(0, 0, 0, 0.3);
-        --card-border: rgba(255, 215, 0, 0.5);
-        --nav-bg: rgba(0, 0, 0, 0.95);
-        --nav-text: #ffffff;
-        --mobile-menu-bg: #000000;
-        --footer-bg: #000000;
-    }
-}
-
-/* Manual dark mode class */
-.dark-mode {
+    /* Dark mode variables (default) */
     --bg-primary: #1a1a1a;
     --bg-secondary: #2d2d2d;
     --bg-dark: #000000;
@@ -58,6 +18,25 @@
     --nav-text: #ffffff;
     --mobile-menu-bg: #000000;
     --footer-bg: #000000;
+}
+
+/* Light mode variables */
+.light-mode {
+    --bg-primary: #f6f6f6;
+    --bg-secondary: #ffffff;
+    --bg-dark: #1a1a1a;
+    --text-primary: #1a1a1a;
+    --text-secondary: #4a5568;
+    --text-light: #ffffff;
+    --accent: #FFD700;
+    --accent-hover: #E5C100;
+    --border: #e2e8f0;
+    --card-bg: rgba(255, 255, 255, 0.1);
+    --card-border: rgba(255, 215, 0, 0.3);
+    --nav-bg: rgba(255, 255, 255, 0.95);
+    --nav-text: #1a1a1a;
+    --mobile-menu-bg: #ffffff;
+    --footer-bg: #f6f6f6;
 }
 
 /* Manual light mode class */
