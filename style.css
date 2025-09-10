@@ -796,6 +796,11 @@ footer {
     }
 }
 
+/* Bookkeeping Section Background */
+.bookkeeping-section {
+    background-color: var(--bg-primary);
+}
+
 /* Print Styles */
 /* Clean Instagram Gallery Styles - Smaller Images */
 .instagram-embed-grid {

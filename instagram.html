@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Photography Gallery - Level Craft</title>
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="script.js" defer></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Aktiv+Grotesk+Extended:wght@400;700;900&display=swap" rel="stylesheet">
 </head>
-<body>
+<body class="font-inter">
     <!-- Theme Toggle Button -->
     <button class="theme-toggle" onclick="toggleTheme()" title="Toggle light/dark mode">
         <svg class="sun-icon" width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -27,6 +27,44 @@
         <div class="absolute inset-0 bg-gradient-to-br from-yellow-50/10 via-transparent to-yellow-100/5 dark:from-yellow-900/5 dark:via-transparent dark:to-yellow-800/5"></div>
         
         <div class="max-w-7xl mx-auto px-6 relative z-10">
+            <!-- Integrated Navigation -->
+            <div class="flex justify-center items-center mb-12">
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-6">
+                    <a href="index.html" class="text-sm font-medium hover:text-yellow-400 transition-colors" style="color: var(--text-primary);">Home</a>
+                    <a href="services.html" class="text-sm font-medium hover:text-yellow-400 transition-colors" style="color: var(--text-primary);">Services</a>
+                    <a href="packages.html" class="text-sm font-medium hover:text-yellow-400 transition-colors" style="color: var(--text-primary);">Packages</a>
+                    <a href="instagram.html" class="text-sm font-medium text-yellow-400">Gallery</a>
+                    <a href="index.html#contact" class="text-sm font-medium hover:text-yellow-400 transition-colors" style="color: var(--text-primary);">Contact</a>
+                </div>
+                
+                <!-- Mobile Menu Button -->
+                <a href="#nav" class="nav__toggle md:hidden" role="button" aria-expanded="false" aria-controls="menu">
+                    <svg class="menuicon" xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 50 50">
+                        <title>Toggle Menu</title>
+                        <g>
+                            <line class="menuicon__bar" x1="13" y1="16.5" x2="37" y2="16.5"/>
+                            <line class="menuicon__bar" x1="13" y1="24.5" x2="37" y2="24.5"/>
+                            <line class="menuicon__bar" x1="13" y1="24.5" x2="37" y2="24.5"/>
+                            <line class="menuicon__bar" x1="13" y1="32.5" x2="37" y2="32.5"/>
+                            <circle class="menuicon__circle" r="23" cx="25" cy="25" />
+                        </g>
+                    </svg>
+                </a>
+            </div>
+            
+            <!-- Mobile Menu -->
+            <ul class="nav__menu md:hidden" id="menu" tabindex="-1" aria-label="main navigation" hidden>
+                <li class="nav__item"><a href="index.html" class="nav__link">Home</a></li>
+                <li class="nav__item"><a href="services.html" class="nav__link">Services</a></li>
+                <li class="nav__item"><a href="packages.html" class="nav__link">Packages</a></li>
+                <li class="nav__item"><a href="instagram.html" class="nav__link">Gallery</a></li>
+                <li class="nav__item"><a href="index.html#contact" class="nav__link">Contact</a></li>
+            </ul>
+            
+            <!-- Animated Background Element -->
+            <div class="splash"></div>
+            
             <!-- Simple Header -->
             <div class="text-center mb-12">
                 <h1 class="text-3xl md:text-4xl font-bold mb-4" style="color: var(--text-primary); font-family: 'Aktiv Grotesk Extended', sans-serif;">
