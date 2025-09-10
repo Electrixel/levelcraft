@@ -3,13 +3,6 @@
 // Theme management
 let currentTheme = 'dark'; // 'light', 'dark' (dark is default)
 
-// Initialize theme on page load
-document.addEventListener('DOMContentLoaded', function() {
-    initializeTheme();
-    setupEventListeners();
-    initializeAnimations();
-});
-
 // Theme initialization
 function initializeTheme() {
     // Check for saved theme preference
@@ -76,72 +69,8 @@ function setupEventListeners() {
     // No system theme listening needed since we use manual toggle only
 }
 
-// Mobile menu functionality for animated menu
-function setupAnimatedMobileMenu() {
-    const nav = document.querySelector('nav');
-    const menu = document.querySelector('#menu');
-    const menuToggle = document.querySelector('.nav__toggle');
-    let isMenuOpen = false;
-
-    if (!nav || !menu || !menuToggle) return;
-
-    // Toggle menu active state
-    menuToggle.addEventListener('click', e => {
-        e.preventDefault();
-        isMenuOpen = !isMenuOpen;
-        
-        // Toggle a11y attributes and active class
-        menuToggle.setAttribute('aria-expanded', String(isMenuOpen));
-        menu.hidden = !isMenuOpen;
-        nav.classList.toggle('nav--open');
-    });
-
-    // Trap tab inside nav when open
-    nav.addEventListener('keydown', e => {
-        // Abort if menu isn't open or modifier keys are pressed
-        if (!isMenuOpen || e.ctrlKey || e.metaKey || e.altKey) {
-            return;
-        }
-        
-        // Listen for tab press and move focus
-        // if we're on either end of the navigation
-        const menuLinks = menu.querySelectorAll('.nav__link');
-        if (e.keyCode === 9) {
-            if (e.shiftKey) {
-                if (document.activeElement === menuLinks[0]) {
-                    menuToggle.focus();
-                    e.preventDefault();
-                }
-            } else if (document.activeElement === menuToggle) {
-                menuLinks[0].focus();
-                e.preventDefault();
-            }
-        }
-    });
-
-    // Close menu when clicking on links
-    const menuLinks = menu.querySelectorAll('.nav__link');
-    menuLinks.forEach(link => {
-        link.addEventListener('click', function() {
-            isMenuOpen = false;
-            menuToggle.setAttribute('aria-expanded', 'false');
-            menu.hidden = true;
-            nav.classList.remove('nav--open');
-        });
-    });
-
-    // Close menu when clicking outside
-    document.addEventListener('click', function(e) {
-        if (isMenuOpen && !nav.contains(e.target)) {
-            isMenuOpen = false;
-            menuToggle.setAttribute('aria-expanded', 'false');
-            menu.hidden = true;
-            nav.classList.remove('nav--open');
-        }
-    });
-}
-    
-    // Smooth scrolling for anchor links
+// Smooth scrolling for anchor links
+function setupSmoothScrolling() {
     const anchorLinks = document.querySelectorAll('a[href^="#"]');
     anchorLinks.forEach(link => {
         link.addEventListener('click', function(e) {
@@ -408,6 +337,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initializeTheme();
     setupEventListeners();
     setupAnimatedMobileMenu();
+    setupSmoothScrolling();
     initializeAnimations();
     initParallax();
     setupFormValidation();
