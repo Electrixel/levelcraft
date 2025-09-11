@@ -11,31 +11,24 @@
     <link href="https://fonts.googleapis.com/css2?family=Aktiv+Grotesk+Extended:wght@400;700;900&display=swap" rel="stylesheet">
 </head>
 <body class="font-inter">
-    <!-- Theme Toggle Button -->
-    <button class="theme-toggle" onclick="toggleTheme()" title="Toggle light/dark mode">
-        <svg class="sun-icon" width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
-        </svg>
-        <svg class="moon-icon" width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="display: none;">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
-        </svg>
-    </button>
-
-    <!-- Photography Gallery -->
-    <section class="min-h-screen pt-20 pb-20 relative overflow-hidden">
-        <!-- Simple Background -->
-        <div class="absolute inset-0 bg-gradient-to-br from-yellow-50/10 via-transparent to-yellow-100/5 dark:from-yellow-900/5 dark:via-transparent dark:to-yellow-800/5"></div>
-        
-        <div class="max-w-7xl mx-auto px-6 relative z-10">
-            <!-- Integrated Navigation -->
-            <div class="flex justify-center items-center mb-12">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <a href="index.html">
+                        <img src="images/level_craft.png" alt="Level Craft" class="h-12 w-auto hover:opacity-80 transition-opacity">
+                    </a>
+                </div>
+                
                 <!-- Desktop Navigation -->
-                <div class="hidden md:flex items-center space-x-6">
-                    <a href="index.html" class="text-sm font-medium hover:text-yellow-400 transition-colors" style="color: var(--text-primary);">Home</a>
-                    <a href="services.html" class="text-sm font-medium hover:text-yellow-400 transition-colors" style="color: var(--text-primary);">Services</a>
-                    <a href="packages.html" class="text-sm font-medium hover:text-yellow-400 transition-colors" style="color: var(--text-primary);">Packages</a>
-                    <a href="instagram.html" class="text-sm font-medium text-yellow-400">Gallery</a>
-                    <a href="index.html#contact" class="text-sm font-medium hover:text-yellow-400 transition-colors" style="color: var(--text-primary);">Contact</a>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="nav-link font-medium">Home</a>
+                    <a href="services.html" class="nav-link font-medium">Services</a>
+                    <a href="packages.html" class="nav-link font-medium">Packages</a>
+                    <a href="instagram.html" class="nav-link font-medium">Gallery</a>
+                    <a href="index.html#contact" class="nav-link font-medium">Contact</a>
                 </div>
                 
                 <!-- Mobile Menu Button -->
@@ -52,18 +45,37 @@
                     </svg>
                 </a>
             </div>
-            
-            <!-- Mobile Menu -->
-            <ul class="nav__menu md:hidden" id="menu" tabindex="-1" aria-label="main navigation" hidden>
-                <li class="nav__item"><a href="index.html" class="nav__link">Home</a></li>
-                <li class="nav__item"><a href="services.html" class="nav__link">Services</a></li>
-                <li class="nav__item"><a href="packages.html" class="nav__link">Packages</a></li>
-                <li class="nav__item"><a href="instagram.html" class="nav__link">Gallery</a></li>
-                <li class="nav__item"><a href="index.html#contact" class="nav__link">Contact</a></li>
-            </ul>
-            
-            <!-- Animated Background Element -->
-            <div class="splash"></div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <ul class="nav__menu md:hidden" id="menu" tabindex="-1" aria-label="main navigation" hidden>
+            <li class="nav__item"><a href="index.html" class="nav__link">Home</a></li>
+            <li class="nav__item"><a href="services.html" class="nav__link">Services</a></li>
+            <li class="nav__item"><a href="packages.html" class="nav__link">Packages</a></li>
+            <li class="nav__item"><a href="instagram.html" class="nav__link">Gallery</a></li>
+            <li class="nav__item"><a href="index.html#contact" class="nav__link">Contact</a></li>
+        </ul>
+        
+        <!-- Animated Background Element -->
+        <div class="splash"></div>
+    </nav>
+
+    <!-- Theme Toggle Button -->
+    <button class="theme-toggle" onclick="toggleTheme()" title="Toggle light/dark mode">
+        <svg class="sun-icon" width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
+        </svg>
+        <svg class="moon-icon" width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="display: none;">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+        </svg>
+    </button>
+
+    <!-- Photography Gallery -->
+    <section class="min-h-screen pt-32 pb-20 relative overflow-hidden">
+        <!-- Simple Background -->
+        <div class="absolute inset-0 bg-gradient-to-br from-yellow-50/10 via-transparent to-yellow-100/5 dark:from-yellow-900/5 dark:via-transparent dark:to-yellow-800/5"></div>
+        
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
             
             <!-- Simple Header -->
             <div class="text-center mb-12">

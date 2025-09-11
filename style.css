@@ -16,7 +16,7 @@
     --card-border: rgba(255, 215, 0, 0.5);
     --nav-bg: rgba(0, 0, 0, 0.95);
     --nav-text: #ffffff;
-    --mobile-menu-bg: #000000;
+    --mobile-menu-bg: #FFD700;
     --footer-bg: #000000;
 }
 
@@ -35,7 +35,7 @@
     --card-border: rgba(255, 215, 0, 0.3);
     --nav-bg: rgba(255, 255, 255, 0.95);
     --nav-text: #1a1a1a;
-    --mobile-menu-bg: #ffffff;
+    --mobile-menu-bg: #FFD700;
     --footer-bg: #f6f6f6;
 }
 
@@ -54,7 +54,7 @@
     --card-border: rgba(255, 215, 0, 0.3);
     --nav-bg: rgba(255, 255, 255, 0.95);
     --nav-text: #1a1a1a;
-    --mobile-menu-bg: #ffffff;
+    --mobile-menu-bg: #FFD700;
     --footer-bg: #f6f6f6;
 }
 
@@ -147,7 +147,7 @@ nav {
 .nav__toggle {
     display: inline-block;
     position: absolute;
-    z-index: 10;
+    z-index: 10000;
     padding: 0;
     border: 0;
     background: transparent;
@@ -169,12 +169,23 @@ nav {
     flex-direction: column;
     justify-content: center;
     height: 100vh;
-    position: relative;
-    z-index: 5;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 9999;
     visibility: hidden;
     margin: 0;
     padding: 0;
     list-style: none;
+    background: var(--mobile-menu-bg);
+    opacity: 0;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.nav__menu[hidden] {
+    visibility: hidden !important;
 }
 
 .nav__item {
@@ -199,7 +210,7 @@ nav {
 }
 
 .nav__link {
-    color: white;
+    color: var(--bg-dark);
     display: block;
     text-align: center;
     text-transform: uppercase;
@@ -213,7 +224,8 @@ nav {
 .nav__link:hover,
 .nav__link:focus {
     outline: 0;
-    background-color: rgba(0, 0, 0, 0.2);
+    background-color: rgba(0, 0, 0, 0.1);
+    color: var(--bg-dark);
 }
 
 /* SVG Menu Icon */
@@ -278,7 +290,7 @@ nav {
 
 .nav:target .menuicon,
 .nav--open .menuicon {
-    color: white;
+    color: var(--bg-dark);
     transform: rotate(180deg);
 }
 
@@ -307,6 +319,13 @@ nav {
 .nav:target .nav__menu,
 .nav--open .nav__menu {
     visibility: visible;
+    opacity: 1;
+}
+
+.nav--open .nav__menu[hidden] {
+    visibility: visible !important;
+    display: flex !important;
+    opacity: 1 !important;
 }
 
 .nav:target .nav__item,

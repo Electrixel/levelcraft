@@ -294,7 +294,9 @@ function setupAnimatedMobileMenu() {
     const navMenu = document.querySelector('.nav__menu');
     const nav = document.querySelector('nav');
     
-    if (!navToggle || !navMenu || !nav) return;
+    if (!navToggle || !navMenu || !nav) {
+        return;
+    }
     
     navToggle.addEventListener('click', function(e) {
         e.preventDefault();
@@ -311,6 +313,16 @@ function setupAnimatedMobileMenu() {
             navMenu.removeAttribute('hidden');
             navMenu.focus();
         }
+    });
+    
+    // Close menu when clicking on navigation links
+    const menuLinks = navMenu.querySelectorAll('.nav__link');
+    menuLinks.forEach(link => {
+        link.addEventListener('click', function() {
+            nav.classList.remove('nav--open');
+            navToggle.setAttribute('aria-expanded', 'false');
+            navMenu.setAttribute('hidden', '');
+        });
     });
     
     // Close menu when clicking outside

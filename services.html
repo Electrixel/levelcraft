@@ -32,16 +32,33 @@
                         Get Started
                     </a>
                 </div>
-                <div class="md:hidden">
-                    <a href="#nav" class="nav__toggle md:hidden" role="button" aria-expanded="false" aria-controls="menu">
-                        <span class="sr-only">Menu</span>
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-                        </svg>
-                    </a>
-                </div>
+                <!-- Mobile Menu Button -->
+                <a href="#nav" class="nav__toggle md:hidden" role="button" aria-expanded="false" aria-controls="menu">
+                    <svg class="menuicon" xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 50 50">
+                        <title>Toggle Menu</title>
+                        <g>
+                            <line class="menuicon__bar" x1="13" y1="16.5" x2="37" y2="16.5"/>
+                            <line class="menuicon__bar" x1="13" y1="24.5" x2="37" y2="24.5"/>
+                            <line class="menuicon__bar" x1="13" y1="24.5" x2="37" y2="24.5"/>
+                            <line class="menuicon__bar" x1="13" y1="32.5" x2="37" y2="32.5"/>
+                            <circle class="menuicon__circle" r="23" cx="25" cy="25" />
+                        </g>
+                    </svg>
+                </a>
             </div>
         </div>
+        
+        <!-- Mobile Menu -->
+        <ul class="nav__menu md:hidden" id="menu" tabindex="-1" aria-label="main navigation" hidden>
+            <li class="nav__item"><a href="index.html" class="nav__link">Home</a></li>
+            <li class="nav__item"><a href="services.html" class="nav__link">Services</a></li>
+            <li class="nav__item"><a href="packages.html" class="nav__link">Packages</a></li>
+            <li class="nav__item"><a href="instagram.html" class="nav__link">Gallery</a></li>
+            <li class="nav__item"><a href="index.html#contact" class="nav__link">Contact</a></li>
+        </ul>
+        
+        <!-- Animated Background Element -->
+        <div class="splash"></div>
     </nav>
 
     <!-- Theme Toggle Button -->
@@ -53,18 +70,6 @@
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
         </svg>
     </button>
-
-    <!-- Mobile Menu -->
-    <ul class="nav__menu md:hidden" id="menu" tabindex="-1" aria-label="main navigation" hidden>
-        <li class="nav__item"><a href="index.html" class="nav__link">Home</a></li>
-        <li class="nav__item"><a href="services.html" class="nav__link">Services</a></li>
-        <li class="nav__item"><a href="packages.html" class="nav__link">Packages</a></li>
-        <li class="nav__item"><a href="instagram.html" class="nav__link">Gallery</a></li>
-        <li class="nav__item"><a href="index.html#contact" class="nav__link">Contact</a></li>
-    </ul>
-    
-    <!-- Animated Background Element -->
-    <div class="splash"></div>
 
     <!-- Hero Section -->
     <section id="services" class="py-24 pt-32">
